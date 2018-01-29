@@ -28,8 +28,6 @@ public class TankManagement extends AppCompatActivity {
         });
     }
 
-};
-
 public void sendRequest(String url) {
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
         StringRequest request = new StringRequest(url, new Response.Listener<String>() {
