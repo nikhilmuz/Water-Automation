@@ -8,52 +8,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.List;
 
 public class Login extends AppCompatActivity {
 
+    EditText ssid,pwd;
     Button login,ptp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        String networkSSID = "Nikhil";
-        String networkPass = "password";
-
-        WifiConfiguration conf = new WifiConfiguration();
-        conf.SSID = "\""+networkSSID+"\"";
-
-        conf.wepKeys[0] = "\"" + networkPass + "\"";
-        conf.wepTxKeyIndex = 0;
-        conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-        conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
-
-        Context context=this;
-
-        WifiManager wifiManager = (WifiManager)context.getApplicationContext().getSystemService(WIFI_SERVICE);
-        wifiManager.addNetwork(conf);
-
-        List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
-        for( WifiConfiguration i : list ) {
-            if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
-                wifiManager.disconnect();
-                wifiManager.enableNetwork(i.networkId, true);
-                wifiManager.reconnect();
-
-                break;
-            }
-        }
-
+        ssid=(EditText) findViewById(R.id.ssid);
+        pwd=(EditText) findViewById(R.id.pwd);
         login=(Button) findViewById(R.id.login);
         ptp=(Button) findViewById(R.id.ptp);
+        Context context=this.getApplicationContext();
+        WifiConfiguration wifiConfig = new WifiConfiguration();
+
+        wifiConfig.SSID = String.format("\"%s\"", "Nikhil");
+        wifiConfig.preSharedKey = String.format("\"%s\"", "password");
+
+        WifiManager wifiManager=(WifiManager)context.getSystemService(WIFI_SERVICE);
+        int netId = wifiManager.addNetwork(wifiConfig);
+        wifiManager.disconnect();
+        wifiManager.enableNetwork(netId, true);
+        wifiManager.reconnect();
+
         final Intent dash=new Intent(this,Dashboard.class);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Login.this, "This Feature is under Development", Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, "Unavailable", Toast.LENGTH_SHORT).show();
             }
         });
         ptp.setOnClickListener(new View.OnClickListener() {

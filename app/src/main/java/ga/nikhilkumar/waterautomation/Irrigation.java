@@ -17,15 +17,13 @@ import com.android.volley.toolbox.Volley;
 
 
 public class Irrigation extends AppCompatActivity {
-    ToggleButton t1, t2, t3, t4;
+    ToggleButton t1, t2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_irrigation);
         t1 = (ToggleButton) findViewById(R.id.t1);
         t2 = (ToggleButton) findViewById(R.id.t2);
-        t3 = (ToggleButton) findViewById(R.id.t3);
-        t4 = (ToggleButton) findViewById(R.id.t4);
 
         t1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -42,24 +40,6 @@ public class Irrigation extends AppCompatActivity {
                     sendRequest("http://192.168.4.1/s2on");
                 } else {
                     sendRequest("http://192.168.4.1/s2off");
-                }
-            }
-        });
-        t3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    sendRequest("http://192.168.4.1/s3on");
-                } else {
-                    sendRequest("http://192.168.4.1/s3off");
-                }
-            }
-        });
-        t4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    sendRequest("http://192.168.4.1/s4on");
-                } else {
-                    sendRequest("http://192.168.4.1/s4off");
                 }
             }
         });
