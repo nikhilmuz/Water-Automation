@@ -31,4 +31,10 @@
         android:text="Connect P2P"
         android:id="@+id/ptp"/>
 
+    <Button
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test" />
+
 </LinearLayout>

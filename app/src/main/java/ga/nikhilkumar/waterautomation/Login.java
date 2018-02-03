@@ -16,7 +16,7 @@ import java.util.List;
 public class Login extends AppCompatActivity {
 
     EditText ssid,pwd;
-    Button login,ptp;
+    Button login,ptp,test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public class Login extends AppCompatActivity {
         pwd=(EditText) findViewById(R.id.pwd);
         login=(Button) findViewById(R.id.login);
         ptp=(Button) findViewById(R.id.ptp);
+        test=(Button) findViewById(R.id.test);
         final Context context=this.getApplicationContext();
 
         final Intent dash=new Intent(this,Dashboard.class);
@@ -38,6 +39,17 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(dash);
+            }
+        });
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Vars.check_wifi_status(context)){
+                    Toast.makeText(context, "Connected", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(context, "Not Connected", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
