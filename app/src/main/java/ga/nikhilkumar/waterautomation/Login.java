@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
                 login.setEnabled(false);
                 Vars.connect_wifi(context, String.valueOf(ssid.getText()), String.valueOf(pwd.getText()));
                 while (!Vars.check_wifi_status(context)) {}
-                if (Vars.get_wifi_ssid(context) == String.format("\"%s\"", String.valueOf(ssid.getText()))) {
+                if (Vars.get_wifi_ssid(context).equals(String.format("\"%s\"", String.valueOf(ssid.getText())))) {
                     Vars.put_string_sp(context,"ssid",String.valueOf(ssid.getText()));
                     Vars.put_string_sp(context,"key",String.valueOf(pwd.getText()));
                     login.setEnabled(true);
