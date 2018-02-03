@@ -25,23 +25,13 @@ public class Login extends AppCompatActivity {
         pwd=(EditText) findViewById(R.id.pwd);
         login=(Button) findViewById(R.id.login);
         ptp=(Button) findViewById(R.id.ptp);
-        Context context=this.getApplicationContext();
-        WifiConfiguration wifiConfig = new WifiConfiguration();
-
-        wifiConfig.SSID = String.format("\"%s\"", "Nikhil");
-        wifiConfig.preSharedKey = String.format("\"%s\"", "password");
-
-        WifiManager wifiManager=(WifiManager)context.getSystemService(WIFI_SERVICE);
-        int netId = wifiManager.addNetwork(wifiConfig);
-        wifiManager.disconnect();
-        wifiManager.enableNetwork(netId, true);
-        wifiManager.reconnect();
+        final Context context=this.getApplicationContext();
 
         final Intent dash=new Intent(this,Dashboard.class);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Login.this, "Unavailable", Toast.LENGTH_SHORT).show();
+                Vars.connect_wifi(context,String.valueOf(ssid.getText()),String.valueOf(pwd.getText()));
             }
         });
         ptp.setOnClickListener(new View.OnClickListener() {
