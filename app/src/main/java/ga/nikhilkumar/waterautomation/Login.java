@@ -32,7 +32,19 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Vars.connect_wifi(context,String.valueOf(ssid.getText()),String.valueOf(pwd.getText()));
+                login.setEnabled(false);
+                Vars.connect_wifi(context, String.valueOf(ssid.getText()), String.valueOf(pwd.getText()));
+                while (!Vars.check_wifi_status(context)) {}
+                if (Vars.get_wifi_ssid(context) == String.format("\"%s\"", String.valueOf(ssid.getText()))) {
+                    Vars.put_string_sp(context,"ssid",String.valueOf(ssid.getText()));
+                    Vars.put_string_sp(context,"key",String.valueOf(pwd.getText()));
+                    login.setEnabled(true);
+                    startActivity(dash);
+                }
+                else{
+                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                    login.setEnabled(true);
+                }
             }
         });
         ptp.setOnClickListener(new View.OnClickListener() {
