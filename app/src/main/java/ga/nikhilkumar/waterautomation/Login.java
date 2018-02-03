@@ -44,12 +44,7 @@ public class Login extends AppCompatActivity {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Vars.check_wifi_status(context)){
-                    Toast.makeText(context, "Connected", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(context, "Not Connected", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(context, Vars.get_string_sp(context,"name"), Toast.LENGTH_SHORT).show();
             }
         });
     }
