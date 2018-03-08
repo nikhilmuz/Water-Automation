@@ -12,15 +12,8 @@ import android.widget.Toast;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener{
 
-    Button login, irri, tankMag;
+    Button login, irri, tankMag,beta;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        MenuInflater mi = getMenuInflater();
-        mi.inflate(R.menu.action_bar, menu);
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +21,10 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_dashboard);
         irri = (Button) findViewById(R.id.irri);
         tankMag = (Button) findViewById(R.id.tankmag);
+        beta = (Button) findViewById(R.id.beta);
         irri.setOnClickListener(this);
         tankMag.setOnClickListener(this);
+        beta.setOnClickListener(this);
     }
 
     @Override
@@ -40,7 +35,9 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
              tempCla = Irrigation.class;
          } else if (tempId == tankMag.getId()) {
              tempCla = TankManagement.class;
-         } else {
+         } else if (tempId==beta.getId()){
+             tempCla = MainActivity.class;
+            }else {
              Toast.makeText(this , "something went wrong :(",Toast.LENGTH_SHORT).show();
             return;
          }
