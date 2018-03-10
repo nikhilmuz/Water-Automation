@@ -17,9 +17,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class IrrigationFragment extends Fragment {
 ToggleButton t1,t2;
 
