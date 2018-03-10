@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
         test=(Button) findViewById(R.id.test);
         final Context context=this.getApplicationContext();
 
-        final Intent dash=new Intent(this,Dashboard.class);
+        final Intent dash=new Intent(this,MainActivity.class);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
