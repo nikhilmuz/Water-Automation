@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logout) {
+            Intent intent = new Intent(MainActivity.this,Login.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

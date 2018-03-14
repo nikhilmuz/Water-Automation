@@ -40,6 +40,7 @@ public class Login extends AppCompatActivity {
                     Vars.put_string_sp(context,"key",String.valueOf(pwd.getText()));
                     login.setEnabled(true);
                     startActivity(dash);
+                    finish();
                 }
                 else{
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
@@ -51,6 +52,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(dash);
+                finish();
             }
         });
         test.setOnClickListener(new View.OnClickListener() {
