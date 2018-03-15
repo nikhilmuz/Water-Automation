@@ -15,14 +15,12 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
 
-    EditText ssid,pwd;
+    String ssid="ESPap",pwd="thereisnospoon";
     Button login,ptp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ssid=(EditText) findViewById(R.id.ssid);
-        pwd=(EditText) findViewById(R.id.pwd);
         login=(Button) findViewById(R.id.login);
         ptp=(Button) findViewById(R.id.ptp);
         final Context context=this.getApplicationContext();
@@ -32,11 +30,11 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 login.setEnabled(false);
-                Vars.connect_wifi(context, String.valueOf(ssid.getText()), String.valueOf(pwd.getText()));
+                Vars.connect_wifi(context, ssid, pwd);
                 while (!Vars.check_wifi_status(context)) {}
-                if (Vars.get_wifi_ssid(context).equals(String.format("\"%s\"", String.valueOf(ssid.getText())))) {
-                    Vars.put_string_sp(context,"ssid",String.valueOf(ssid.getText()));
-                    Vars.put_string_sp(context,"key",String.valueOf(pwd.getText()));
+                if (Vars.get_wifi_ssid(context).equals(String.format("\"%s\"", ssid))) {
+                    Vars.put_string_sp(context,"ssid",ssid);
+                    Vars.put_string_sp(context,"key",pwd);
                     login.setEnabled(true);
                     startActivity(dash);
                     finish();

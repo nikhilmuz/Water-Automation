@@ -24,6 +24,7 @@ import static android.content.Context.WIFI_SERVICE;
  */
 
 public class Vars {
+    public static String ip = "192.168.4.1";
     static void connect_wifi(Context context,String ssid,String key){
         WifiConfiguration wifiConfig = new WifiConfiguration();
         wifiConfig.SSID = String.format("\"%s\"", ssid);

@@ -4,31 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     tools:context="ga.nikhilkumar.waterautomation.Login">
 
-    <EditText
+    <Button
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ssid"
-        android:hint="SSID" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/pwd"
-        android:hint="Key"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Connect" />
 
     <Button
+        android:id="@+id/ptp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/login"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Connect P2P"
-        android:id="@+id/ptp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Already Connected" />
 
 </LinearLayout>

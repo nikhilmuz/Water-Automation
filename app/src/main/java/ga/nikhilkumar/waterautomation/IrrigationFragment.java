@@ -21,11 +21,10 @@ import com.android.volley.toolbox.Volley;
 
 public class IrrigationFragment extends Fragment {
 Button s1onbtn,s1offbtn,s1autobtn,s2onbtn,s2offbtn,s2autobtn,s3onbtn,s3offbtn,s3autobtn,s4onbtn,s4offbtn,s4autobtn;
-String ip="192.168.4.1";
+String ip=Vars.ip;
     public IrrigationFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

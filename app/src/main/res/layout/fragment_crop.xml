@@ -7,8 +7,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
+        <EditText
+            android:id="@+id/max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:hint="Maximum Moisture"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:hint="Minimum Moisture"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/setminmax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set" />
     </LinearLayout>
 
 </FrameLayout>
