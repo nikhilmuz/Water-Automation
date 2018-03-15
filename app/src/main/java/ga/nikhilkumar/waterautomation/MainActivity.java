@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
         } else if (id == R.id.nav_slideshow) {
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.main_frame, new TankFragment());
+            ft.replace(R.id.main_frame, new CropFragment());
             ft.disallowAddToBackStack();
             ft.commit();
         } else if (id == R.id.nav_manage) {

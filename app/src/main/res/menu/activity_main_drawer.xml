@@ -10,8 +10,8 @@
             android:title="Irrigation" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@mipmap/tank_foreground"
-            android:title="Tank Management" />
+            android:icon="@mipmap/crop_foreground"
+            android:title="Crop Manager" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
