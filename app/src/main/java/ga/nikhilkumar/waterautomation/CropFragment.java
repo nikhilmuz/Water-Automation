@@ -51,7 +51,7 @@ Button setminmax;
                         if (maxint<10) maxstr="00"+maxint;
                         else if (maxint<100) maxstr="0"+maxint;
                         Toast.makeText(getActivity(), "Setting Parameters!!!", Toast.LENGTH_SHORT).show();
-                        sendRequest("http://" + ip + "/mm"+minstr+","+maxstr);
+                        sendRequest("http://" + ip + "/mm?min="+minstr+"&max="+maxstr);
                     }
                     else {
                         Toast.makeText(getActivity(), "Check Inputs!!!", Toast.LENGTH_SHORT).show();
